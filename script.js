@@ -3,7 +3,7 @@ const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
 
-const countDownDate = new Date("May 25, 2026 00:00:00").getTime();
+const countDownDate = new Date("May 1, 2026 00:00:00").getTime();
 
 const x = setInterval(function() {
 

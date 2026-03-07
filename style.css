@@ -1,73 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@500;700&family=Joti+One&display=swap');
+
+@font-face {
+    font-family: 'VIP Control';
+    src: url('fonts/vip-arabic-typo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(45deg, #1d2b3a, #0f172a, #1d2b3a);
-    color: white;
+    background-color: #1F4B34; /* Primary Color */
+    background-image: 
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.2) 0%, transparent 50%);
+    color: #F8F9FA; /* Off-white */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Allow scrolling on small devices */
     margin: 0;
+    padding: 20px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 50px 60px;
+    background: rgba(255, 255, 255, 0.05); /* Light translucent background */
+    padding: clamp(30px, 5vw, 60px); /* Responsive padding */
     border-radius: 20px;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
 }
 
 .logo {
-    max-width: 180px;
-    margin-bottom: 30px;
-    animation: float 3s ease-in-out infinite;
+    max-width: min(260px, 60vw); /* Responsive logo size */
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+}
+
+.company-name {
+    font-family: 'Joti One', cursive;
+    font-size: clamp(1.8em, 4.5vw, 2.8em); /* Increased fluid typography */
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: clamp(15px, 3vw, 25px);
+    letter-spacing: 1px;
+    color: #FFFFFF;
 }
 
 h1 {
-    font-weight: 600;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: clamp(1.4em, 4vw, 2.4em); /* Slightly smaller fluid typography */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    letter-spacing: clamp(1px, 1vw, 3px);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    line-height: 1.2;
 }
 
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin-top: 30px;
+    gap: clamp(8px, 1.5vw, 20px);
+    margin-top: clamp(15px, 3vw, 25px);
+    font-family: 'Roboto Mono', monospace;
+    flex-wrap: wrap; /* Wrap on smaller screens */
 }
 
 .time-unit {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px;
-    border-radius: 10px;
-    min-width: 100px;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    padding: clamp(12px, 2.5vw, 25px) clamp(8px, 1.5vw, 20px);
+    border-radius: 12px;
+    flex: 1; /* Equal width units */
+    min-width: clamp(70px, 18vw, 110px); /* Responsive min-width */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .time-unit:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .time-unit span {
     display: block;
-    font-size: 3em;
-    font-weight: 600;
+    font-size: clamp(2em, 5vw, 3.8em); /* Slightly smaller fluid typography */
+    font-weight: 700;
+    color: #FFFFFF;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    line-height: 1;
+    margin-bottom: 5px;
 }
 
 .time-unit .label {
-    font-size: 0.9em;
-    font-weight: 300;
+    font-size: clamp(0.7em, 1.5vw, 0.9em); /* Fluid typography */
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: clamp(1px, 0.5vw, 3px);
+    color: rgba(255, 255, 255, 0.85);
 }
 
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+/* Touch device adjustments */
+@media (hover: none) {
+    .time-unit:hover {
+        transform: none;
+    }
+}
+
+/* Mobile specific layout tweaks */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 15px;
+    }
+    
+    #countdown {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid on very small screens */
+    }
+    
+    .time-unit {
+        min-width: 0;
+    }
 }
