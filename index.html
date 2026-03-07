@@ -1,33 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hantoor Countdown</title>
+    <title>Hantoor / حنطور</title>
     <link rel="icon" type="image/svg+xml" href="images/hantoor-primary.svg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="lang-switch" class="lang-btn">العربية</button>
+
     <div class="container">
-        <img src="images/hantoor-white.svg" alt="Hantoor Logo" class="logo">
-        <h1 class="company-name">Hantoor</h1>
-        <h1>GET READY TO DRIVE</h1>
+        <img src="images/hantoor-white.svg" alt="Logo" class="logo">
+        
+        <h1 class="company-name" id="company-name">Hantoor</h1>
+        
+        <h2 class="main-heading" id="main-heading">GET READY TO DRIVE</h2>
+
         <div id="countdown">
             <div class="time-unit">
                 <span id="days"></span>
-                <div class="label">Days</div>
+                <div class="label" id="label-days">Days</div>
             </div>
             <div class="time-unit">
                 <span id="hours"></span>
-                <div class="label">Hours</div>
+                <div class="label" id="label-hours">Hours</div>
             </div>
             <div class="time-unit">
                 <span id="minutes"></span>
-                <div class="label">Minutes</div>
+                <div class="label" id="label-minutes">Minutes</div>
             </div>
             <div class="time-unit">
                 <span id="seconds"></span>
-                <div class="label">Seconds</div>
+                <div class="label" id="label-seconds">Seconds</div>
             </div>
         </div>
     </div>
