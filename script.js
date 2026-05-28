@@ -47,7 +47,9 @@ function updateLanguage(lang) {
     document.getElementById('label-minutes').innerText = t.minutes;
     document.getElementById('label-seconds').innerText = t.seconds;
     langBtn.innerText = t.btn;
-    heroImg.src = lang === 'ar' ? 'images/hero-phone-car-ar.png' : 'images/hero-phone-car-en.png';
+    heroImg.src = heroImg.dataset[lang === 'ar' ? 'srcAr' : 'srcEn'];
+    const mobileHeroImg = document.querySelector('.mobile-hero img');
+    if (mobileHeroImg) mobileHeroImg.src = mobileHeroImg.dataset[lang === 'ar' ? 'srcAr' : 'srcEn'];
 
     updateCountdownValues();
 }

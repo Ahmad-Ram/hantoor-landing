@@ -82,6 +82,26 @@ body {
     z-index: 1;
 }
 
+.circle-star {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 320px;
+    height: 320px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.half-circle-star {
+    position: absolute;
+    top: 0;
+    left: 330px;
+    width: 350px;
+    height: 190px;
+    z-index: 1;
+    pointer-events: none;
+}
+
 .lang-btn {
     background: var(--surface);
     color: var(--accent);
@@ -296,11 +316,16 @@ html[dir="rtl"] #countdown { justify-content: flex-start; }
     .mobile-hero {
         display: block;
         width: 100%;
+        overflow: hidden;
     }
 
     .mobile-hero img {
         width: 100%;
         height: auto;
         display: block;
+    }
+
+    html[lang="ar"] .mobile-hero img {
+        margin-top: -40px;
     }
 }
