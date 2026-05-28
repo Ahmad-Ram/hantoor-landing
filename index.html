@@ -3,39 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hantoor / حنطور</title>
+    <title>Hantoor - Coming Soon</title>
     <link rel="icon" type="image/svg+xml" href="images/hantoor-primary.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins:wght@400;500;700&family=Almarai:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="lang-switch" class="lang-btn">العربية</button>
+    <div class="page">
 
-    <div class="container">
-        <img src="images/hantoor-white.svg" alt="Logo" class="logo">
-        
-        <h1 class="company-name" id="company-name">Hantoor</h1>
-        
-        <h2 class="main-heading" id="main-heading">GET READY TO DRIVE</h2>
+        <!-- Left: hero image (desktop only) -->
+        <div class="hero-col">
+            <img src="images/hero-phone-car-en.png" alt="" class="hero-img">
+            <img src="images/logo.svg" alt="Hantoor" class="logo">
+        </div>
 
-        <div id="countdown">
-            <div class="time-unit">
-                <span id="days"></span>
-                <div class="label" id="label-days">Days</div>
-            </div>
-            <div class="time-unit">
-                <span id="hours"></span>
-                <div class="label" id="label-hours">Hours</div>
-            </div>
-            <div class="time-unit">
-                <span id="minutes"></span>
-                <div class="label" id="label-minutes">Minutes</div>
-            </div>
-            <div class="time-unit">
-                <span id="seconds"></span>
-                <div class="label" id="label-seconds">Seconds</div>
+        <!-- Right: content -->
+        <div class="content-col">
+            <header class="site-header">
+                <button id="lang-switch" class="lang-btn">Ar</button>
+            </header>
+
+            <div class="content-body">
+                <div class="coming-soon-group">
+                    <span class="pill-dot">✦</span>
+                    <div class="coming-soon-pill">
+                        <span id="badge-text">COMING SOON</span>
+                    </div>
+                    <span class="pill-dot">✦</span>
+                </div>
+
+                <h1 class="headline" id="main-heading">Your next rental experience</h1>
+                <h2 class="headline-accent" id="accent-heading">is almost here</h2>
+                <p class="subtitle" id="subtitle">Official rollout begins soon across Syria.</p>
+
+                <div id="countdown">
+                    <div class="time-unit">
+                        <span id="days"></span>
+                        <span class="label" id="label-days">Days</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="hours"></span>
+                        <span class="label" id="label-hours">Hours</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="minutes"></span>
+                        <span class="label" id="label-minutes">Minutes</span>
+                    </div>
+                    <div class="time-unit">
+                        <span id="seconds"></span>
+                        <span class="label" id="label-seconds">Seconds</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Mobile: hero image at bottom -->
+    <div class="mobile-hero" aria-hidden="true">
+        <img src="images/hero-mobile-bottom.png" alt="">
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
