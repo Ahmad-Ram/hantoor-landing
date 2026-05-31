@@ -5,6 +5,10 @@ const translations = {
         accentHeading: "is almost here",
         subtitle: "Official rollout begins soon across Syria.",
         badgeText: "COMING SOON",
+        days: "Days",
+        hours: "Hours",
+        minutes: "Minutes",
+        seconds: "Seconds",
         btn: "Ar"
     },
     ar: {
@@ -13,6 +17,10 @@ const translations = {
         accentHeading: "أصبحت أقرب من أي وقت",
         subtitle: "نستعد لإطلاق تجربة جديدة لاستئجار السيارات قريبًا في سوريا",
         badgeText: "ترقبونا قريبا",
+        days: "أيام",
+        hours: "ساعات",
+        minutes: "دقائق",
+        seconds: "ثواني",
         btn: "En"
     }
 };
@@ -33,6 +41,10 @@ function updateLanguage(lang) {
     document.getElementById('accent-heading').innerText = t.accentHeading;
     document.getElementById('subtitle').innerText = t.subtitle;
     document.getElementById('badge-text').innerText = t.badgeText;
+    document.getElementById('label-days').innerText = t.days;
+    document.getElementById('label-hours').innerText = t.hours;
+    document.getElementById('label-minutes').innerText = t.minutes;
+    document.getElementById('label-seconds').innerText = t.seconds;
     langBtn.innerText = t.btn;
 
     // mobile hero stays the same for both languages
@@ -58,4 +70,28 @@ langBtn.addEventListener('click', () => {
     }, 250);
 });
 
+const daysEl    = document.getElementById('days');
+const hoursEl   = document.getElementById('hours');
+const minutesEl = document.getElementById('minutes');
+const secondsEl = document.getElementById('seconds');
+
+const countDownDate = new Date("August 1, 2026 00:00:00").getTime();
+
+function updateCountdownValues() {
+    const now      = new Date().getTime();
+    const distance = countDownDate - now;
+
+    if (distance < 0) {
+        [daysEl, hoursEl, minutesEl, secondsEl].forEach(el => el.innerText = "0");
+        return;
+    }
+
+    daysEl.innerText    = Math.floor(distance / (1000 * 60 * 60 * 24));
+    hoursEl.innerText   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    minutesEl.innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    secondsEl.innerText = Math.floor((distance % (1000 * 60)) / 1000);
+}
+
 detectLanguage();
+setInterval(updateCountdownValues, 1000);
+updateCountdownValues();
