@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion Request | طلب حذف البيانات — Hantoor | حنطور</title>
+
+    <meta name="description" content="Request deletion of your Hantoor account and associated data. No app installation required. | اطلب حذف حسابك وبياناتك في حنطور دون الحاجة لتثبيت التطبيق.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hantoor.net/data-deletion/">
+    <link rel="icon" href="/images/favicon.ico">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hantoor.net/data-deletion/">
+    <meta property="og:title" content="Data Deletion Request | طلب حذف البيانات — Hantoor">
+    <meta property="og:description" content="Request deletion of your Hantoor account and associated data.">
+    <meta property="og:site_name" content="Hantoor | حنطور">
+
+    <style>
+        :root {
+            --bg: #081515;
+            --accent: #59b469;
+            --text-primary: #ffffff;
+            --text-secondary: #b8cccc;
+            --text-muted: #8faaaa;
+            --surface: rgba(15, 31, 31, 0.75);
+            --field: rgba(8, 18, 18, 0.6);
+            --border: #1d3333;
+            --radius: 20px;
+            --maxw: 820px;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Arabic", "Tajawal", sans-serif;
+            line-height: 1.75;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .wrap {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            padding: 28px 20px 80px;
+        }
+
+        header.legal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .brand img { height: 34px; width: auto; }
+
+        .lang-toggle {
+            display: inline-flex;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+        .lang-toggle button {
+            border: 0;
+            background: transparent;
+            padding: 8px 18px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-family: inherit;
+        }
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: #06140e;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            backdrop-filter: blur(8px);
+        }
+
+        h1 { font-size: 1.9rem; margin: 0 0 4px; }
+        .updated { color: var(--text-muted); font-size: 0.9rem; margin: 0 0 22px; }
+
+        h2 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin: 26px 0 10px;
+        }
+        h2:first-of-type { margin-top: 2px; }
+
+        p { margin: 0 0 12px; color: var(--text-secondary); }
+        ul { margin: 0 0 16px; padding-inline-start: 22px; }
+        li { margin: 0 0 8px; color: var(--text-secondary); }
+
+        form { margin-top: 6px; }
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 16px 0 6px;
+            font-size: 0.95rem;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 11px 13px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--field);
+            color: var(--text-primary);
+        }
+        input::placeholder, textarea::placeholder { color: var(--text-muted); }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        textarea { resize: vertical; min-height: 88px; }
+
+        .btn {
+            display: block;
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px 16px;
+            border: 0;
+            border-radius: 12px;
+            background: var(--accent);
+            color: #06140e;
+            font-size: 1.02rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn:hover { opacity: 0.93; }
+
+        .note {
+            margin-top: 14px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer.legal-footer {
+            margin-top: 26px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        [data-lang] { display: none; }
+        [data-lang].visible { display: block; }
+
+        html[dir="rtl"] body { text-align: right; }
+        html[dir="rtl"] .legal-header { flex-direction: row-reverse; }
+
+        @media (max-width: 520px) {
+            .card { padding: 22px 18px; }
+            h1 { font-size: 1.55rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="legal-header">
+            <a class="brand" href="/">
+                <img src="/images/logo.svg" alt="Hantoor | حنطور">
+            </a>
+            <div class="lang-toggle" role="group" aria-label="Language">
+                <button data-set-lang="en" type="button">English</button>
+                <button data-set-lang="ar" type="button">العربية</button>
+            </div>
+        </header>
+
+        <main class="card">
+            <!-- ENGLISH -->
+            <section data-lang="en">
+                <h1>Data Deletion Request</h1>
+                <p class="updated">Request deletion of your account and associated personal data. No app installation required.</p>
+
+                <h2>What gets deleted</h2>
+                <p>When we process your request, we delete or anonymise the personal data associated with your Hantoor account, including:</p>
+                <ul>
+                    <li>Account and profile information (name, email, phone, password, profile photo).</li>
+                    <li>Identity and driving-license documents you uploaded.</li>
+                    <li>Your favorites, notification preferences, and saved searches.</li>
+                    <li>Booking history linked to your account.</li>
+                </ul>
+
+                <h2>What we may retain</h2>
+                <p>We may keep limited records where the law requires it — for example, transaction records needed for tax, accounting, fraud-prevention, or dispute-resolution obligations. Such records are kept only as long as legally required and are not used for any other purpose.</p>
+
+                <h2>How long it takes</h2>
+                <p>We confirm receipt of your request and complete the deletion within <strong>30 days</strong>. We may contact you first to verify your identity before deleting data.</p>
+
+                <h2>Request deletion</h2>
+                <p>Fill in the form below and submit. This opens your email app with a pre-filled message to our privacy team. You can also email us directly at <a href="mailto:info@hantoor.net?subject=Data%20Deletion%20Request">info@hantoor.net</a>.</p>
+                <form data-form="en" novalidate>
+                    <label for="en-name">Full name</label>
+                    <input id="en-name" name="name" type="text" autocomplete="name" required>
+
+                    <label for="en-contact">Account email or phone number</label>
+                    <input id="en-contact" name="contact" type="text" required placeholder="The email/phone you signed up with">
+
+                    <label for="en-scope">What would you like to delete?</label>
+                    <select id="en-scope" name="scope">
+                        <option value="My entire account and all associated data">My entire account and all associated data</option>
+                        <option value="Specific data only (described below)">Specific data only (described below)</option>
+                    </select>
+
+                    <label for="en-notes">Additional details (optional)</label>
+                    <textarea id="en-notes" name="notes" placeholder="Anything else we should know"></textarea>
+
+                    <button class="btn" type="submit">Submit deletion request</button>
+                </form>
+                <p class="note">Prefer email? Write to <a href="mailto:info@hantoor.net?subject=Data%20Deletion%20Request">info@hantoor.net</a> with the subject "Data Deletion Request".</p>
+            </section>
+
+            <!-- ARABIC -->
+            <section data-lang="ar">
+                <h1>طلب حذف البيانات</h1>
+                <p class="updated">اطلب حذف حسابك والبيانات الشخصية المرتبطة به. لا حاجة لتثبيت التطبيق.</p>
+
+                <h2>ما الذي سيتم حذفه</h2>
+                <p>عند معالجة طلبك، نحذف أو نُخفي هوية البيانات الشخصية المرتبطة بحسابك في حنطور، بما في ذلك:</p>
+                <ul>
+                    <li>معلومات الحساب والملف الشخصي (الاسم، البريد الإلكتروني، الهاتف، كلمة المرور، الصورة الشخصية).</li>
+                    <li>وثائق الهوية ورخصة القيادة التي قمت برفعها.</li>
+                    <li>المفضلة وتفضيلات الإشعارات وعمليات البحث المحفوظة.</li>
+                    <li>سجل الحجوزات المرتبط بحسابك.</li>
+                </ul>
+
+                <h2>ما الذي قد نحتفظ به</h2>
+                <p>قد نحتفظ بسجلات محدودة عندما يقتضي القانون ذلك — مثل سجلات المعاملات اللازمة للالتزامات الضريبية والمحاسبية ومنع الاحتيال وحل النزاعات. ويتم الاحتفاظ بهذه السجلات فقط للمدة التي يفرضها القانون ولا تُستخدم لأي غرض آخر.</p>
+
+                <h2>المدة المطلوبة</h2>
+                <p>نؤكد استلام طلبك ونكمل الحذف خلال <strong>30 يوماً</strong>. وقد نتواصل معك أولاً للتحقق من هويتك قبل حذف البيانات.</p>
+
+                <h2>تقديم طلب الحذف</h2>
+                <p>املأ النموذج أدناه وأرسله. سيؤدي ذلك إلى فتح تطبيق البريد لديك برسالة معبأة مسبقاً موجهة إلى فريق الخصوصية. ويمكنك أيضاً مراسلتنا مباشرةً على <a href="mailto:info@hantoor.net?subject=Data%20Deletion%20Request">info@hantoor.net</a>.</p>
+                <form data-form="ar" novalidate>
+                    <label for="ar-name">الاسم الكامل</label>
+                    <input id="ar-name" name="name" type="text" autocomplete="name" required>
+
+                    <label for="ar-contact">البريد الإلكتروني أو رقم الهاتف للحساب</label>
+                    <input id="ar-contact" name="contact" type="text" required placeholder="البريد/الهاتف الذي سجّلت به">
+
+                    <label for="ar-scope">ما الذي ترغب في حذفه؟</label>
+                    <select id="ar-scope" name="scope">
+                        <option value="حسابي بالكامل وجميع البيانات المرتبطة به">حسابي بالكامل وجميع البيانات المرتبطة به</option>
+                        <option value="بيانات محددة فقط (موضّحة أدناه)">بيانات محددة فقط (موضّحة أدناه)</option>
+                    </select>
+
+                    <label for="ar-notes">تفاصيل إضافية (اختياري)</label>
+                    <textarea id="ar-notes" name="notes" placeholder="أي شيء آخر يجب أن نعرفه"></textarea>
+
+                    <button class="btn" type="submit">إرسال طلب الحذف</button>
+                </form>
+                <p class="note">تفضّل البريد؟ راسلنا على <a href="mailto:info@hantoor.net?subject=Data%20Deletion%20Request">info@hantoor.net</a> مع الموضوع "Data Deletion Request".</p>
+            </section>
+        </main>
+
+        <footer class="legal-footer">
+            <span data-lang="en" class="visible">&copy; <span class="year"></span> Hantoor. All rights reserved. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/">Home</a></span>
+            <span data-lang="ar">&copy; <span class="year"></span> حنطور. جميع الحقوق محفوظة. &middot; <a href="/privacy-policy/">سياسة الخصوصية</a> &middot; <a href="/">الصفحة الرئيسية</a></span>
+        </footer>
+    </div>
+
+    <script>
+        (function () {
+            function setLang(lang) {
+                var html = document.documentElement;
+                html.setAttribute("lang", lang);
+                html.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
+                document.querySelectorAll("[data-lang]").forEach(function (el) {
+                    el.classList.toggle("visible", el.getAttribute("data-lang") === lang);
+                });
+                document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+                    btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
+                });
+                try { localStorage.setItem("hantoor-legal-lang", lang); } catch (e) {}
+            }
+
+            document.querySelectorAll(".year").forEach(function (el) {
+                el.textContent = new Date().getFullYear();
+            });
+
+            document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    setLang(btn.getAttribute("data-set-lang"));
+                });
+            });
+
+            document.querySelectorAll("form[data-form]").forEach(function (form) {
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    var get = function (n) {
+                        var el = form.querySelector('[name="' + n + '"]');
+                        return el ? el.value.trim() : "";
+                    };
+                    var name = get("name");
+                    var contact = get("contact");
+                    if (!name || !contact) {
+                        form.reportValidity();
+                        return;
+                    }
+                    var body =
+                        "Data Deletion Request\n\n" +
+                        "Name: " + name + "\n" +
+                        "Account email/phone: " + contact + "\n" +
+                        "Scope: " + get("scope") + "\n" +
+                        "Notes: " + (get("notes") || "-") + "\n\n" +
+                        "I request deletion of my Hantoor account and/or the data described above.";
+                    window.location.href = "mailto:info@hantoor.net" +
+                        "?subject=" + encodeURIComponent("Data Deletion Request") +
+                        "&body=" + encodeURIComponent(body);
+                });
+            });
+
+            var saved = null;
+            try { saved = localStorage.getItem("hantoor-legal-lang"); } catch (e) {}
+            var browserAr = (navigator.language || "").toLowerCase().indexOf("ar") === 0;
+            setLang(saved || (browserAr ? "ar" : "en"));
+        })();
+    </script>
+</body>
+</html>
