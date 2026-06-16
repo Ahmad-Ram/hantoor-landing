@@ -10,4 +10,10 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://hantoor.net/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hantoor.net/"/>
   </url>
+  <url>
+    <loc>https://hantoor.net/privacy-policy/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
 </urlset>
