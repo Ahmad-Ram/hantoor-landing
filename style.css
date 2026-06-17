@@ -349,10 +349,13 @@ html[dir="rtl"] #countdown { justify-content: flex-start; }
 
 /* Footer legal links */
 .site-footer {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 5;
     text-align: center;
-    padding: 24px 16px 32px;
+    padding: 16px 16px 20px;
     color: var(--text-muted);
     font-size: 0.85rem;
 }

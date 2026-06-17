@@ -8,7 +8,10 @@
     <meta name="description" content="Hantoor Privacy Policy — how we collect, use, and protect your data. | سياسة خصوصية حنطور — كيف نجمع بياناتك ونستخدمها ونحميها.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hantoor.net/privacy-policy/">
-    <link rel="icon" href="/images/favicon.ico">
+    <link rel="icon" href="../images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Almarai:wght@400;700&display=swap" rel="stylesheet">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hantoor.net/privacy-policy/">
@@ -35,11 +38,13 @@
             margin: 0;
             background-color: var(--bg);
             color: var(--text-primary);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Arabic", "Tajawal", sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.75;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
         }
+
+        html[lang="ar"] body { font-family: 'Almarai', sans-serif; }
 
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -65,28 +70,6 @@
             gap: 10px;
         }
         .brand img { height: 34px; width: auto; }
-
-        .lang-toggle {
-            display: inline-flex;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            overflow: hidden;
-            background: var(--surface);
-        }
-        .lang-toggle button {
-            border: 0;
-            background: transparent;
-            padding: 8px 18px;
-            font-size: 0.95rem;
-            cursor: pointer;
-            color: var(--text-secondary);
-            font-family: inherit;
-        }
-        .lang-toggle button.active {
-            background: var(--accent);
-            color: #06140e;
-            font-weight: 600;
-        }
 
         .card {
             background: var(--surface);
@@ -120,6 +103,46 @@
         [data-lang] { display: none; }
         [data-lang].visible { display: block; }
 
+        .lang-btn {
+            position: fixed;
+            top: 22px;
+            left: 32px;
+            z-index: 100;
+            background: var(--surface);
+            color: var(--accent);
+            border: none;
+            padding: 9px 24px;
+            border-radius: 200px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        html[lang="ar"] .lang-btn { font-family: 'Almarai', sans-serif; }
+        .lang-btn:hover { background: rgba(15, 31, 31, 1); }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--surface);
+            color: var(--accent);
+            border: none;
+            padding: 9px 20px;
+            border-radius: 200px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        html[lang="ar"] .back-btn { font-family: 'Almarai', sans-serif; font-size: 15px; }
+        .back-btn:hover { background: rgba(15, 31, 31, 1); }
+        .back-btn svg { width: 16px; height: 16px; fill: var(--accent); flex-shrink: 0; }
+        html[dir="rtl"] .back-btn svg { transform: scaleX(-1); }
+
         html[dir="rtl"] body { text-align: right; }
         html[dir="rtl"] .legal-header { flex-direction: row-reverse; }
 
@@ -127,18 +150,40 @@
             .card { padding: 22px 18px; }
             h1 { font-size: 1.55rem; }
         }
+
+        @media (max-width: 700px) {
+            .wrap { padding-top: 80px; }
+
+            .back-btn {
+                position: fixed;
+                top: 22px;
+                right: 32px;
+                z-index: 100;
+            }
+
+
+            header.legal-header {
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+
+            .brand img { height: 40px; }
+        }
     </style>
 </head>
 <body>
+    <button class="lang-btn" id="lang-btn">Ar</button>
     <div class="wrap">
         <header class="legal-header">
             <a class="brand" href="/">
-                <img src="/images/logo.svg" alt="Hantoor | حنطور">
+                <img src="../images/logo.svg" alt="Hantoor | حنطور">
             </a>
-            <div class="lang-toggle" role="group" aria-label="Language">
-                <button data-set-lang="en" type="button">English</button>
-                <button data-set-lang="ar" type="button">العربية</button>
-            </div>
+            <a href="/" class="back-btn" id="back-btn">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                <span id="back-label">Home</span>
+            </a>
         </header>
 
         <main class="card">
@@ -237,7 +282,7 @@
                     <li><strong>الكيان القانوني:</strong> حنطور</li>
                     <li><strong>العنوان المسجّل:</strong> دمشق، الجمهورية العربية السورية</li>
                     <li><strong>البريد الإلكتروني:</strong> info@hantoor.net</li>
-                    <li><strong>رقم الهاتف:</strong> +963 988453568</li>
+                    <li><strong>رقم الهاتف:</strong> <span dir="ltr">+963 988453568</span></li>
                 </ul>
 
                 <h2>2. المعلومات التي نجمعها</h2>
@@ -303,7 +348,7 @@
                 <h2>13. تواصل معنا</h2>
                 <ul>
                     <li><strong>البريد الإلكتروني:</strong> info@hantoor.net</li>
-                    <li><strong>الهاتف:</strong> +963 988453568</li>
+                    <li><strong>الهاتف:</strong> <span dir="ltr">+963 988453568</span></li>
                     <li><strong>العنوان:</strong> دمشق، الجمهورية العربية السورية</li>
                 </ul>
             </section>
@@ -317,33 +362,32 @@
 
     <script>
         (function () {
+            var currentLang = 'en';
+
             function setLang(lang) {
+                currentLang = lang;
                 var html = document.documentElement;
                 html.setAttribute("lang", lang);
                 html.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
                 document.querySelectorAll("[data-lang]").forEach(function (el) {
                     el.classList.toggle("visible", el.getAttribute("data-lang") === lang);
                 });
-                document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
-                    btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
-                });
-                try { localStorage.setItem("hantoor-legal-lang", lang); } catch (e) {}
+                document.getElementById("lang-btn").textContent = lang === "ar" ? "En" : "Ar";
+                document.getElementById("back-label").textContent = lang === "ar" ? "الرئيسية" : "Home";
+                try { localStorage.setItem("hantoor-lang", lang); } catch (e) {}
             }
 
             document.querySelectorAll(".year").forEach(function (el) {
                 el.textContent = new Date().getFullYear();
             });
 
-            document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
-                btn.addEventListener("click", function () {
-                    setLang(btn.getAttribute("data-set-lang"));
-                });
+            document.getElementById("lang-btn").addEventListener("click", function () {
+                setLang(currentLang === "en" ? "ar" : "en");
             });
 
             var saved = null;
-            try { saved = localStorage.getItem("hantoor-legal-lang"); } catch (e) {}
-            var browserAr = (navigator.language || "").toLowerCase().indexOf("ar") === 0;
-            setLang(saved || (browserAr ? "ar" : "en"));
+            try { saved = localStorage.getItem("hantoor-lang"); } catch (e) {}
+            setLang(saved || "ar");
         })();
     </script>
 </body>

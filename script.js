@@ -9,7 +9,9 @@ const translations = {
         hours: "Hours",
         minutes: "Minutes",
         seconds: "Seconds",
-        btn: "Ar"
+        btn: "Ar",
+        privacyPolicy: "Privacy Policy",
+        partnerWithUs: "Partner with us"
     },
     ar: {
         title: "حنطور - قريباً",
@@ -21,7 +23,9 @@ const translations = {
         hours: "ساعات",
         minutes: "دقائق",
         seconds: "ثواني",
-        btn: "En"
+        btn: "En",
+        privacyPolicy: "سياسة الخصوصية",
+        partnerWithUs: "انضم كمزود"
     }
 };
 
@@ -35,6 +39,7 @@ function updateLanguage(lang) {
 
     htmlTag.setAttribute('lang', lang);
     htmlTag.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    localStorage.setItem('hantoor-lang', lang);
 
     document.title = t.title;
     document.getElementById('main-heading').innerText = t.mainHeading;
@@ -46,13 +51,15 @@ function updateLanguage(lang) {
     document.getElementById('label-minutes').innerText = t.minutes;
     document.getElementById('label-seconds').innerText = t.seconds;
     langBtn.innerText = t.btn;
+    document.getElementById('footer-privacy').innerText = t.privacyPolicy;
+    document.getElementById('footer-partner').innerText = t.partnerWithUs;
 
     // mobile hero stays the same for both languages
 }
 
 function detectLanguage() {
-    const browserLang = navigator.language || navigator.userLanguage;
-    updateLanguage(browserLang.startsWith('ar') ? 'ar' : 'en');
+    const saved = localStorage.getItem('hantoor-lang');
+    updateLanguage(saved || 'ar');
 }
 
 langBtn.addEventListener('click', () => {
