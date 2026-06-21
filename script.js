@@ -14,7 +14,7 @@ const translations = {
         partnerWithUs: "Partner with us"
     },
     ar: {
-        title: "حنطور - قريباً",
+        title: "حنتور - قريباً",
         mainHeading: "تجربتك القادمة لاستئجار السيارات",
         accentHeading: "أصبحت أقرب من أي وقت",
         subtitle: "نستعد لإطلاق تجربة جديدة لاستئجار السيارات قريبًا في سوريا",
