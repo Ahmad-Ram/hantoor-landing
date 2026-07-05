@@ -3,21 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Deletion Request | طلب حذف البيانات — Hantoor | حنتور</title>
+    <title>Data Deletion Request | طلب حذف البيانات — Hantoor | حنطور</title>
 
-    <meta name="description" content="Request deletion of your Hantoor account and associated data. No app installation required. | اطلب حذف حسابك وبياناتك في حنتور دون الحاجة لتثبيت التطبيق.">
+    <meta name="description" content="Request deletion of your Hantoor account and associated data. No app installation required. | اطلب حذف حسابك وبياناتك في حنطور دون الحاجة لتثبيت التطبيق.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://hantoor.net/data-deletion/">
-    <link rel="icon" href="../images/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/favicon.ico">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hantoor.net/data-deletion/">
     <meta property="og:title" content="Data Deletion Request | طلب حذف البيانات — Hantoor">
     <meta property="og:description" content="Request deletion of your Hantoor account and associated data.">
-    <meta property="og:site_name" content="Hantoor | حنتور">
+    <meta property="og:site_name" content="Hantoor | حنطور">
 
     <style>
         :root {
@@ -39,13 +36,11 @@
             margin: 0;
             background-color: var(--bg);
             color: var(--text-primary);
-            font-family: 'Poppins', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Arabic", "Tajawal", sans-serif;
             line-height: 1.75;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
         }
-
-        html[lang="ar"] body { font-family: 'Almarai', sans-serif; }
 
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
@@ -71,6 +66,28 @@
             gap: 10px;
         }
         .brand img { height: 34px; width: auto; }
+
+        .lang-toggle {
+            display: inline-flex;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+        .lang-toggle button {
+            border: 0;
+            background: transparent;
+            padding: 8px 18px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-family: inherit;
+        }
+        .lang-toggle button.active {
+            background: var(--accent);
+            color: #06140e;
+            font-weight: 600;
+        }
 
         .card {
             background: var(--surface);
@@ -164,8 +181,12 @@
     <div class="wrap">
         <header class="legal-header">
             <a class="brand" href="/">
-                <img src="../images/logo.svg" alt="Hantoor | حنتور">
+                <img src="/images/logo.svg" alt="Hantoor | حنطور">
             </a>
+            <div class="lang-toggle" role="group" aria-label="Language">
+                <button data-set-lang="en" type="button">English</button>
+                <button data-set-lang="ar" type="button">العربية</button>
+            </div>
         </header>
 
         <main class="card">
@@ -218,7 +239,7 @@
                 <p class="updated">اطلب حذف حسابك والبيانات الشخصية المرتبطة به. لا حاجة لتثبيت التطبيق.</p>
 
                 <h2>ما الذي سيتم حذفه</h2>
-                <p>عند معالجة طلبك، نحذف أو نُخفي هوية البيانات الشخصية المرتبطة بحسابك في حنتور، بما في ذلك:</p>
+                <p>عند معالجة طلبك، نحذف أو نُخفي هوية البيانات الشخصية المرتبطة بحسابك في حنطور، بما في ذلك:</p>
                 <ul>
                     <li>معلومات الحساب والملف الشخصي (الاسم، البريد الإلكتروني، الهاتف، كلمة المرور، الصورة الشخصية).</li>
                     <li>وثائق الهوية ورخصة القيادة التي قمت برفعها.</li>
@@ -258,7 +279,7 @@
 
         <footer class="legal-footer">
             <span data-lang="en" class="visible">&copy; <span class="year"></span> Hantoor. All rights reserved. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/">Home</a></span>
-            <span data-lang="ar">&copy; <span class="year"></span> حنتور. جميع الحقوق محفوظة. &middot; <a href="/privacy-policy/">سياسة الخصوصية</a> &middot; <a href="/">الصفحة الرئيسية</a></span>
+            <span data-lang="ar">&copy; <span class="year"></span> حنطور. جميع الحقوق محفوظة. &middot; <a href="/privacy-policy/">سياسة الخصوصية</a> &middot; <a href="/">الصفحة الرئيسية</a></span>
         </footer>
     </div>
 
@@ -271,10 +292,20 @@
                 document.querySelectorAll("[data-lang]").forEach(function (el) {
                     el.classList.toggle("visible", el.getAttribute("data-lang") === lang);
                 });
+                document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+                    btn.classList.toggle("active", btn.getAttribute("data-set-lang") === lang);
+                });
+                try { localStorage.setItem("hantoor-legal-lang", lang); } catch (e) {}
             }
 
             document.querySelectorAll(".year").forEach(function (el) {
                 el.textContent = new Date().getFullYear();
+            });
+
+            document.querySelectorAll(".lang-toggle button").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    setLang(btn.getAttribute("data-set-lang"));
+                });
             });
 
             document.querySelectorAll("form[data-form]").forEach(function (form) {
@@ -304,8 +335,9 @@
             });
 
             var saved = null;
-            try { saved = localStorage.getItem("hantoor-lang"); } catch (e) {}
-            setLang(saved || "ar");
+            try { saved = localStorage.getItem("hantoor-legal-lang"); } catch (e) {}
+            var browserAr = (navigator.language || "").toLowerCase().indexOf("ar") === 0;
+            setLang(saved || (browserAr ? "ar" : "en"));
         })();
     </script>
 </body>
