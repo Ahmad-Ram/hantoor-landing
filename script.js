@@ -11,7 +11,7 @@ const translations = {
         seconds: "Seconds",
         btn: "Ar",
         privacyPolicy: "Privacy Policy",
-        partnerWithUs: "Partner with us"
+        partnerWithUs: "Partner with us",
     },
     ar: {
         title: "حنتور - قريباً",

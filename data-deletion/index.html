@@ -112,6 +112,21 @@
             background: var(--field);
             color: var(--text-primary);
         }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24'%3E%3Cpath fill='%238faaaa' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 36px;
+        }
+
+        html[dir="rtl"] select {
+            background-position: left 12px center;
+            padding-right: 13px;
+            padding-left: 36px;
+        }
         input::placeholder, textarea::placeholder { color: var(--text-muted); }
         input:focus, textarea:focus, select:focus {
             outline: none;
@@ -141,6 +156,25 @@
             font-size: 0.9rem;
         }
 
+        .lang-btn {
+            position: fixed;
+            top: 22px;
+            left: 32px;
+            z-index: 100;
+            background: var(--surface);
+            color: var(--accent);
+            border: none;
+            padding: 9px 24px;
+            border-radius: 200px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        html[lang="ar"] .lang-btn { font-family: 'Almarai', sans-serif; }
+        .lang-btn:hover { background: rgba(15, 31, 31, 1); }
+
         footer.legal-footer {
             margin-top: 26px;
             text-align: center;
@@ -161,6 +195,7 @@
     </style>
 </head>
 <body>
+    <button class="lang-btn" id="lang-btn">En</button>
     <div class="wrap">
         <header class="legal-header">
             <a class="brand" href="/">
@@ -257,24 +292,33 @@
         </main>
 
         <footer class="legal-footer">
-            <span data-lang="en" class="visible">&copy; <span class="year"></span> Hantoor. All rights reserved. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/">Home</a></span>
-            <span data-lang="ar">&copy; <span class="year"></span> حنتور. جميع الحقوق محفوظة. &middot; <a href="/privacy-policy/">سياسة الخصوصية</a> &middot; <a href="/">الصفحة الرئيسية</a></span>
+            <span data-lang="en" class="visible">&copy; <span class="year"></span> Hantoor by FikraBits. All rights reserved. &middot; <a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/">Home</a></span>
+            <span data-lang="ar">&copy; <span class="year"></span> حنتور من تطوير FikraBits. جميع الحقوق محفوظة. &middot; <a href="/privacy-policy/">سياسة الخصوصية</a> &middot; <a href="/">الصفحة الرئيسية</a></span>
         </footer>
     </div>
 
     <script>
         (function () {
+            var currentLang = "ar";
+
             function setLang(lang) {
+                currentLang = lang;
                 var html = document.documentElement;
                 html.setAttribute("lang", lang);
                 html.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
                 document.querySelectorAll("[data-lang]").forEach(function (el) {
                     el.classList.toggle("visible", el.getAttribute("data-lang") === lang);
                 });
+                document.getElementById("lang-btn").textContent = lang === "ar" ? "En" : "Ar";
+                try { localStorage.setItem("hantoor-lang", lang); } catch (e) {}
             }
 
             document.querySelectorAll(".year").forEach(function (el) {
                 el.textContent = new Date().getFullYear();
+            });
+
+            document.getElementById("lang-btn").addEventListener("click", function () {
+                setLang(currentLang === "ar" ? "en" : "ar");
             });
 
             document.querySelectorAll("form[data-form]").forEach(function (form) {
