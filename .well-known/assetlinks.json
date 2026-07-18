@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "net.hantoor.app",
+      "sha256_cert_fingerprints": [
+        "C1:80:AF:52:E7:E8:AA:B7:A8:D8:9E:30:46:26:B8:56:08:6D:1B:ED:C4:03:F6:06:04:78:74:13:45:DB:95:0E"
+      ]
+    }
+  }
+]

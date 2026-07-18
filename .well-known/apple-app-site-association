@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["8GQM5ZPP48.net.hantoor.app"],
+        "components": [
+          { "/": "/booking/*" },
+          { "/": "/listing/*" },
+          { "/": "/search*" },
+          { "/": "/bookings/*" }
+        ]
+      }
+    ]
+  }
+}
