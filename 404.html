@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Hantoor | حنتور</title>
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- iOS Smart App Banner: shows a native "OPEN / VIEW" banner in Safari and
+         passes the original URL to the app when it is installed. -->
+    <script>
+        (function () {
+            var meta = document.createElement('meta');
+            meta.name = 'apple-itunes-app';
+            meta.content = 'app-id=6766658486, app-argument=' + window.location.href;
+            document.head.appendChild(meta);
+        })();
+    </script>
+
+    <style>
+        :root {
+            --bg:             #081515;
+            --accent:         #59b469;
+            --text-primary:   #ffffff;
+            --text-secondary: #b8cccc;
+            --text-muted:     #8faaaa;
+            --surface:        rgba(15, 31, 31, 0.75);
+            --border:         #004238;
+        }
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; height: 100%; }
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px 28px 32px;
+        }
+        .logo { width: 132px; height: auto; margin-bottom: 24px; }
+        .spinner {
+            width: 34px; height: 34px;
+            margin: 4px auto 20px;
+            border: 3px solid rgba(89, 180, 105, 0.25);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        h1 { font-size: 1.25rem; font-weight: 700; margin: 0 0 6px; }
+        .ar { font-family: 'Almarai', sans-serif; direction: rtl; }
+        p  { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0 0 4px; }
+        .muted { color: var(--text-muted); font-size: 0.82rem; margin-top: 2px; }
+        .actions { margin-top: 26px; display: flex; flex-direction: column; gap: 12px; }
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 13px 20px;
+            border-radius: 12px;
+            transition: opacity 0.15s ease;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn-primary { background: var(--accent); color: #05221a; }
+        .btn-secondary { background: transparent; color: var(--text-primary); border: 1px solid var(--border); }
+        .link {
+            display: inline-block;
+            margin-top: 18px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        .link:hover { color: var(--text-secondary); }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <img src="/images/logo.svg" alt="Hantoor" class="logo">
+
+        <!-- Deep-link state: user tapped a hantoor.net app link without the app installed -->
+        <div id="redirect-view" class="hidden">
+            <div class="spinner" id="spinner"></div>
+            <h1 id="redirect-title">Opening Hantoor…</h1>
+            <p id="redirect-sub">Taking you to the store to get the app.</p>
+            <p class="ar" id="redirect-sub-ar">جارٍ تحويلك إلى المتجر لتحميل التطبيق.</p>
+
+            <div class="actions">
+                <a id="store-btn" class="btn btn-primary" href="#" rel="noopener">Get the app</a>
+                <a id="open-app-btn" class="btn btn-secondary hidden" href="#">Already installed? Open the app</a>
+            </div>
+            <a class="link" href="/">Continue to hantoor.net</a>
+        </div>
+
+        <!-- Generic 404 state: any other unknown path -->
+        <div id="notfound-view" class="hidden">
+            <h1>Page not found</h1>
+            <p>The page you’re looking for doesn’t exist.</p>
+            <p class="ar">الصفحة التي تبحث عنها غير موجودة.</p>
+            <div class="actions">
+                <a class="btn btn-primary" href="/">Go to homepage</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            // Paths that the mobile apps claim as deep links (mirrors the
+            // AndroidManifest intent-filter and the AASA components).
+            var DEEP_LINK_PREFIXES = ['/booking', '/bookings', '/listing', '/search'];
+
+            var IOS_STORE_URL   = 'https://apps.apple.com/app/id6766658486';
+            var ANDROID_PACKAGE = 'net.hantoor.app';
+            // Custom scheme used by the app's non-verified intent-filter.
+            var APP_SCHEME      = 'hantoor://';
+
+            var pathname = window.location.pathname || '/';
+            // Full deep path (path + query) minus the leading slash, used both
+            // for the Play Store install referrer and the custom-scheme retry.
+            var deepPath = (pathname + window.location.search).replace(/^\//, '');
+
+            var ua = navigator.userAgent || navigator.vendor || '';
+            var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+                        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            var isAndroid = /android/i.test(ua);
+
+            var isDeepLink = DEEP_LINK_PREFIXES.some(function (p) {
+                return pathname.indexOf(p) === 0;
+            });
+
+            var redirectView = document.getElementById('redirect-view');
+            var notfoundView = document.getElementById('notfound-view');
+
+            if (!isDeepLink) {
+                // A genuine 404 — show the not-found card, no store redirect.
+                notfoundView.classList.remove('hidden');
+                return;
+            }
+
+            redirectView.classList.remove('hidden');
+
+            var storeBtn  = document.getElementById('store-btn');
+            var openAppBtn = document.getElementById('open-app-btn');
+
+            var androidUrl = 'https://play.google.com/store/apps/details?id=' +
+                ANDROID_PACKAGE + '&referrer=' + encodeURIComponent(deepPath);
+
+            var storeUrl = null;
+            if (isIOS)      { storeUrl = IOS_STORE_URL; }
+            else if (isAndroid) { storeUrl = androidUrl; }
+
+            // Offer a manual "open the app" retry via the custom scheme
+            // (user-initiated, so it won't throw the "cannot open page" error).
+            openAppBtn.href = APP_SCHEME + deepPath;
+            openAppBtn.classList.remove('hidden');
+
+            if (storeUrl) {
+                storeBtn.href = storeUrl;
+                storeBtn.textContent = isIOS ? 'Get it on the App Store' : 'Get it on Google Play';
+                // Brief branded pause, then send them to the store.
+                window.setTimeout(function () {
+                    window.location.replace(storeUrl);
+                }, 900);
+            } else {
+                // Desktop / unknown platform: no auto-redirect. Offer both stores.
+                document.getElementById('spinner').classList.add('hidden');
+                document.getElementById('redirect-title').textContent = 'Get the Hantoor app';
+                document.getElementById('redirect-sub').textContent = 'Open this link on your phone, or download the app:';
+                document.getElementById('redirect-sub-ar').textContent = 'افتح هذا الرابط على هاتفك، أو حمّل التطبيق:';
+                storeBtn.href = IOS_STORE_URL;
+                storeBtn.textContent = 'Download for iPhone';
+                openAppBtn.href = androidUrl;
+                openAppBtn.textContent = 'Download for Android';
+                openAppBtn.classList.remove('btn-secondary');
+                openAppBtn.classList.add('btn-primary');
+            }
+        })();
+    </script>
+</body>
+</html>
