@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hantoor | حنتور - Car Rental Coming Soon to Syria | استئجار السيارات في سوريا</title>
+    <title>Hantoor | حنتور - Car Rental App Now Live in Syria | استئجار السيارات في سوريا</title>
 
     <!-- SEO -->
-    <meta name="description" content="Hantoor — the smarter way to rent cars in Syria. Coming soon. | حنتور — الطريقة الأذكى لاستئجار السيارات في سوريا. قريباً في جميع أنحاء سوريا.">
-    <meta name="keywords" content="hantoor, حنتور, car rental Syria, استئجار سيارات سوريا, rent a car Syria, تأجير سيارات سوريا, Syria car rental app, تطبيق استئجار سيارات, سوريا, حجز سيارة">
+    <meta name="description" content="Hantoor is now live in Damascus — compare verified car rental providers and book in minutes. | حنتور متوفر الآن في دمشق — قارن بين مزودين موثوقين واحجز سيارتك خلال دقائق.">
+    <meta name="keywords" content="hantoor, حنتور, car rental Syria, استئجار سيارات سوريا, rent a car Syria, تأجير سيارات سوريا, Syria car rental app, تطبيق استئجار سيارات, سوريا, حجز سيارة, دمشق, Damascus">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="6bX8L0v6q7WD2SI7ThJlSso2X7EAzJY30WG71HMLAQ4">
     <meta name="author" content="Hantoor | حنتور">
@@ -16,8 +16,8 @@
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hantoor.net/">
-    <meta property="og:title" content="Hantoor | حنتور - Car Rental Coming Soon to Syria">
-    <meta property="og:description" content="Hantoor — the smarter way to rent cars in Syria. Coming soon. | حنتور — الطريقة الأذكى لاستئجار السيارات في سوريا. قريباً.">
+    <meta property="og:title" content="Hantoor | حنتور - Car Rental App Now Live in Syria">
+    <meta property="og:description" content="Hantoor is now live in Damascus — compare verified providers and book in minutes. | حنتور متوفر الآن في دمشق — قارن بين مزودين موثوقين واحجز خلال دقائق.">
     <meta property="og:image" content="https://hantoor.net/images/hero-phone-car-en.png">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ar_SY">
@@ -26,23 +26,25 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://hantoor.net/">
-    <meta name="twitter:title" content="Hantoor | حنتور - Car Rental Coming Soon to Syria">
-    <meta name="twitter:description" content="Hantoor — the smarter way to rent cars in Syria. | حنتور — الطريقة الأذكى لاستئجار السيارات في سوريا.">
+    <meta name="twitter:title" content="Hantoor | حنتور - Car Rental App Now Live in Syria">
+    <meta name="twitter:description" content="Hantoor is now live in Damascus — compare verified providers and book in minutes. | حنتور متوفر الآن في دمشق — قارن بين مزودين موثوقين واحجز خلال دقائق.">
     <meta name="twitter:image" content="https://hantoor.net/images/hero-phone-car-en.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "MobileApplication",
       "name": "Hantoor",
       "alternateName": "حنتور",
       "url": "https://hantoor.net",
       "logo": "https://hantoor.net/images/logo.svg",
-      "description": "Hantoor is the smarter way to rent cars in Syria. | حنتور هي الطريقة الأذكى لاستئجار السيارات في سوريا.",
+      "description": "Hantoor is the smarter way to rent cars in Syria — compare verified providers and book in minutes. | حنتور هي الطريقة الأذكى لاستئجار السيارات في سوريا.",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "iOS, Android",
       "areaServed": {
-        "@type": "Country",
-        "name": "Syria"
+        "@type": "City",
+        "name": "Damascus"
       },
       "inLanguage": ["en", "ar"]
     }
@@ -55,7 +57,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="page">
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo-link">
+                <img src="images/logo.svg" alt="Hantoor" class="logo" id="header-logo">
+            </a>
+
+            <nav class="main-nav" id="main-nav">
+                <a href="#top" class="nav-link" id="nav-main">Home</a>
+                <a href="#partners" class="nav-link" id="nav-partners">Our partners</a>
+                <a href="#why-hantoor" class="nav-link" id="nav-why">Why Hantoor</a>
+                <a href="#how-it-works" class="nav-link" id="nav-how">How it works</a>
+                <a href="#our-story" class="nav-link" id="nav-story">Our story</a>
+                <a href="#for-agencies" class="nav-link" id="nav-agencies">Join us</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://provider.hantoor.net/" target="_blank" rel="noopener" class="provider-login-btn" id="provider-login">Provider login</a>
+                <button id="lang-switch" class="lang-btn">Ar</button>
+                <button id="nav-toggle" class="nav-toggle" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="page" id="top">
 
         <!-- Left: hero image (desktop only) -->
         <div class="hero-col">
@@ -66,41 +95,27 @@
 
         <!-- Right: content -->
         <div class="content-col">
-            <header class="site-header">
-                <button id="lang-switch" class="lang-btn">Ar</button>
-                <img src="images/logo.svg" alt="Hantoor" class="logo">
-            </header>
-
             <div class="content-body">
                 <div class="coming-soon-group">
                     <span class="pill-dot">✦</span>
                     <div class="coming-soon-pill">
-                        <span id="badge-text">COMING SOON</span>
+                        <span id="badge-text">NOW LIVE IN DAMASCUS</span>
                     </div>
                     <span class="pill-dot">✦</span>
                 </div>
 
-                <h1 class="headline" id="main-heading">Your next rental experience</h1>
-                <h2 class="headline-accent" id="accent-heading">is almost here</h2>
-                <p class="subtitle" id="subtitle">Official rollout begins soon across Syria.</p>
+                <h1 class="headline"><span id="main-heading">Renting a car in Syria —</span> <span class="headline-accent" id="accent-heading">finally made simple.</span></h1>
+                <p class="subtitle" id="subtitle">Hantoor connects you with car rental companies across Syria. No more scrolling Facebook groups, chasing WhatsApp threads, or calling company after company — just search, compare prices, and book. All in one place.</p>
 
-                <div id="countdown">
-                    <div class="time-unit">
-                        <span id="days"></span>
-                        <span class="label" id="label-days">Days</span>
-                    </div>
-                    <div class="time-unit">
-                        <span id="hours"></span>
-                        <span class="label" id="label-hours">Hours</span>
-                    </div>
-                    <div class="time-unit">
-                        <span id="minutes"></span>
-                        <span class="label" id="label-minutes">Minutes</span>
-                    </div>
-                    <div class="time-unit">
-                        <span id="seconds"></span>
-                        <span class="label" id="label-seconds">Seconds</span>
-                    </div>
+                <div id="store-buttons">
+                    <a href="https://apps.apple.com/us/app/hantoor/id6766658486" target="_blank" rel="noopener" class="store-btn" id="store-apple" aria-label="Download on the App Store">
+                        <svg class="store-icon" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+                        <span class="store-text"><small id="store-apple-line1">Download on the</small><strong>App Store</strong></span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=net.hantoor.app" target="_blank" rel="noopener" class="store-btn" id="store-google" aria-label="Get it on Google Play">
+                        <svg class="store-icon" viewBox="-1 0 24 24" fill="currentColor" aria-hidden="true"><path d="m3.751.61 13.124 7.546-2.813 2.813zm-2.719-.61 12.047 12-12.046 12c-.613-.271-1.033-.874-1.033-1.575 0-.023 0-.046.001-.068v.003-20.719c-.001-.019-.001-.042-.001-.065 0-.701.42-1.304 1.022-1.571l.011-.004zm19.922 10.594c.414.307.679.795.679 1.344 0 .022 0 .043-.001.065v-.003c.004.043.007.094.007.145 0 .516-.25.974-.636 1.258l-.004.003-2.813 1.593-3.046-2.999 3.047-3.047zm-17.203 12.796 10.312-10.359 2.813 2.813z"/></svg>
+                        <span class="store-text"><small id="store-google-line1">GET IT ON</small><strong>Google Play</strong></span>
+                    </a>
                 </div>
 
             </div>
@@ -112,10 +127,173 @@
         <img src="images/hero-mobile-bottom-en.png" alt="">
     </div>
 
+    <!-- Our partners -->
+    <section class="section partners-section" id="partners">
+        <h2 class="section-title" id="partners-title">Our partners</h2>
+        <p class="partners-subtitle" id="partners-subtitle">Trusted by leading rental agencies across Syria.</p>
+        <div class="partners-marquee">
+            <div class="partners-track">
+                <div class="partner-card"><img src="images/partner-nour-alsham.png" alt="Nour Al Sham Motors" loading="lazy"></div>
+                <div class="partner-card"><img src="images/partner-auris.png" alt="Auris Rent A Car" loading="lazy"></div>
+                <div class="partner-card"><img src="images/partner-safety-car.png" alt="Safety Car" loading="lazy"></div>
+                <div class="partner-card"><img src="images/partner-najib.png" alt="Najib Rent A Car" loading="lazy"></div>
+                <div class="partner-card"><img src="images/partner-alqaed.png" alt="Al Qaed Rent A Car" loading="lazy"></div>
+                <div class="partner-card"><img src="images/partner-alemad.png" alt="Alemad Cars" loading="lazy"></div>
+                <div class="partner-card" aria-hidden="true"><img src="images/partner-nour-alsham.png" alt="" loading="lazy"></div>
+                <div class="partner-card" aria-hidden="true"><img src="images/partner-auris.png" alt="" loading="lazy"></div>
+                <div class="partner-card" aria-hidden="true"><img src="images/partner-safety-car.png" alt="" loading="lazy"></div>
+                <div class="partner-card" aria-hidden="true"><img src="images/partner-najib.png" alt="" loading="lazy"></div>
+                <div class="partner-card" aria-hidden="true"><img src="images/partner-alqaed.png" alt="" loading="lazy"></div>
+                <div class="partner-card" aria-hidden="true"><img src="images/partner-alemad.png" alt="" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section features-section" id="why-hantoor">
+        <h2 class="section-title" id="features-title">Why Hantoor</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></span>
+                <h3 id="feature-1-title">Verified providers</h3>
+                <p id="feature-1-desc">Every car comes from a vetted rental agency — not a random WhatsApp number.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/><path d="M6 9h2M6 13h2M15 9h2M15 13h2"/></svg></span>
+                <h3 id="feature-2-title">Compare in one place</h3>
+                <p id="feature-2-desc">See prices and cars from multiple companies side by side, instead of calling around.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17.5" cy="18" r="1.7"/></svg></span>
+                <h3 id="feature-3-title">Delivery to you</h3>
+                <p id="feature-3-desc">Get your car delivered to your home, hotel, or the airport.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 3H4v8.5L14.5 22 21 15.5 12.5 3z"/><circle cx="8" cy="8" r="1.3" fill="currentColor" stroke="none"/></svg></span>
+                <h3 id="feature-4-title">Transparent pricing</h3>
+                <p id="feature-4-desc">The price you see is the price you pay. No haggling by phone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section how-section" id="how-it-works">
+        <h2 class="section-title" id="how-title">How it works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <img src="images/app-search.png" alt="Search screen showing available cars in Damascus" loading="lazy">
+                <span class="step-number">1</span>
+                <h3 id="step-1-title">Search</h3>
+                <p id="step-1-desc">Pick your city and dates to see cars available right now.</p>
+            </div>
+            <div class="step-card">
+                <img src="images/app-car-details.png" alt="Car details screen with specs and price" loading="lazy">
+                <span class="step-number">2</span>
+                <h3 id="step-2-title">Compare</h3>
+                <p id="step-2-desc">Check specs, photos, and pricing for each car before you decide.</p>
+            </div>
+            <div class="step-card">
+                <img src="images/app-booking-delivery.png" alt="Booking screen with delivery options" loading="lazy">
+                <span class="step-number">3</span>
+                <h3 id="step-3-title">Book</h3>
+                <p id="step-3-desc">Confirm your ID and license, then choose how you'll get the car.</p>
+            </div>
+            <div class="step-card">
+                <img src="images/app-booking-confirmed.png" alt="Booking confirmed screen" loading="lazy">
+                <span class="step-number">4</span>
+                <h3 id="step-4-title">Get your car</h3>
+                <p id="step-4-desc">Pick up at a branch, the airport, or get it delivered straight to you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our story -->
+    <section class="section story-section" id="our-story">
+        <div class="story-inner">
+            <h2 class="section-title" id="story-title">Our story</h2>
+            <p class="story-kicker" id="story-kicker">From Germany to Damascus — the platform we wished existed.</p>
+            <p id="story-body-1">We're two Syrian software engineers living in Germany. Every trip home to see our families came with the same headache: scrolling Facebook groups, chasing WhatsApp threads, and haggling over prices with no idea what was actually available.</p>
+            <p id="story-body-2">Hantoor is our answer — one honest platform that saves travelers time and gives local rental agencies the digital tools they deserve. The first of its kind in Syria.</p>
+            <div class="story-signature">
+                <strong id="story-names">Wajih &amp; Ahmad</strong>
+                <span id="story-role">Founders</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social proof -->
+    <section class="section stats-section">
+        <h2 class="section-title" id="stats-title">Now live in Damascus</h2>
+        <div class="stats-row">
+            <div class="stat">
+                <span class="stat-number">6+</span>
+                <span class="stat-label" id="stat-1-label">Verified rental agencies</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">200+</span>
+                <span class="stat-label" id="stat-2-label">Cars ready to book</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- For rental agencies -->
+    <section class="section agency-section" id="for-agencies">
+        <span class="section-kicker" id="agency-kicker">Join us</span>
+        <h2 class="agency-title" id="agency-title">Grow your rental business — with less noise.</h2>
+        <p class="agency-subtitle" id="agency-subtitle">Stop answering the same WhatsApp questions all day. Hantoor gives your company a professional home online and connects you with renters who are ready to book.</p>
+
+        <div class="agency-grid">
+            <div class="agency-col">
+                <span class="agency-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a13 13 0 0 1 3.5 9A13 13 0 0 1 12 21a13 13 0 0 1-3.5-9A13 13 0 0 1 12 3z"/></svg></span>
+                <h3 id="agency-1-title">Online Presence</h3>
+                <p id="agency-1-desc">A professional profile customers can actually find, and trust.</p>
+            </div>
+            <div class="agency-col">
+                <span class="agency-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><circle cx="16" cy="16" r="3.2"/><path d="M16 14.6v1.4l1 .8"/></svg></span>
+                <h3 id="agency-2-title">Bookings 24/7</h3>
+                <p id="agency-2-desc">Requests arrive around the clock. Approve or decline at your own pace.</p>
+            </div>
+            <div class="agency-col">
+                <span class="agency-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></span>
+                <h3 id="agency-3-title">Save Time &amp; Effort</h3>
+                <p id="agency-3-desc">Fewer repeat questions. Serious renters come to you, ready to go.</p>
+            </div>
+            <div class="agency-col">
+                <span class="agency-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2.5 15.1 8.6 22 9.6 17 14.4 18.2 21.2 12 18 5.8 21.2 7 14.4 2 9.6 8.9 8.6 12 2.5"/></svg></span>
+                <h3 id="agency-4-title">Ratings &amp; Trust</h3>
+                <p id="agency-4-desc">Real reviews that build your reputation and win the next customer.</p>
+            </div>
+        </div>
+
+        <div class="agency-cta-bar">
+            <div class="agency-cta-text">
+                <span class="agency-cta-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+                <div>
+                    <h3 id="agency-cta-title">Want to join us?</h3>
+                    <p id="agency-cta-desc">Partner with Hantoor and put your fleet in front of thousands of renters.</p>
+                </div>
+            </div>
+            <a href="https://hantoor.net/provider-flyer-jun-01/" class="become-partner-btn" id="agency-cta-btn">Become a partner</a>
+        </div>
+    </section>
+
     <footer class="site-footer">
-        <a href="/privacy-policy/" id="footer-privacy">Privacy Policy</a>
-        <span aria-hidden="true">·</span>
-        <a href="/provider-flyer-jun-01/" id="footer-partner">Partner with us</a>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/people/Hantoor/61590774894619/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on Facebook" class="social-link">
+                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-38.7c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.4h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/hantoor.sy/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on Instagram" class="social-link">
+                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/136003904/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on LinkedIn" class="social-link">
+                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3C448 46.5 433.6 32 416 32zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="https://hantoor.net/privacy-policy/" id="footer-privacy">Privacy Policy</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://hantoor.net/provider-flyer-jun-01/" id="footer-partner">Partner with us</a>
+        </div>
     </footer>
 
     <script src="script.js"></script>
