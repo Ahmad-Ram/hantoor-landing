@@ -40,7 +40,7 @@ const translations = {
         storyTitle: "Our story",
         storyKicker: "From Germany to Damascus — the platform we wished existed.",
         storyBody1: "We're two Syrian software engineers living in Germany. Every trip home to see our families came with the same headache: scrolling Facebook groups, chasing WhatsApp threads, and haggling over prices with no idea what was actually available.",
-        storyBody2: "Hantoor is our answer — one honest platform that saves travelers time and gives local rental agencies the digital tools they deserve. The first of its kind in Syria.",
+        storyBody2: "Hantoor is our answer — one honest platform that saves travelers time and gives local rental agencies the digital tools they deserve.",
         storyNames: "Wajih & Ahmad",
         storyRole: "Founders",
         agencyKicker: "Join us",
