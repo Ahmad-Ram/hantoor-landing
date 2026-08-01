@@ -479,44 +479,12 @@ html[lang="ar"] .feature-card p { font-family: 'Almarai', sans-serif; }
 html[lang="ar"] .step-card h3,
 html[lang="ar"] .step-card p { font-family: 'Almarai', sans-serif; }
 
-/* ─── Social proof / stats ────────────────────── */
-
-.stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 64px;
-    flex-wrap: wrap;
-    margin-bottom: 48px;
-}
-
-.stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-}
-
-.stat-number {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: clamp(36px, 4vw, 52px);
-    color: var(--accent);
-    letter-spacing: -1px;
-}
-
-.stat-label {
-    font-size: 14px;
-    color: var(--text-secondary);
-}
-
-html[lang="ar"] .stat-label { font-family: 'Almarai', sans-serif; }
-
 /* ─── Our partners ────────────────────────────── */
 
 .partners-section { text-align: center; }
 
 .partners-subtitle {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.6;
     color: var(--accent);
     max-width: 560px;
@@ -651,19 +619,21 @@ html[lang="ar"] .story-signature span { font-family: 'Almarai', sans-serif; }
 }
 
 .agency-title {
-    font-size: clamp(20px, 2.2vw, 28px);
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 500;
     line-height: 1.25;
     margin: 0 0 20px 0;
-    color: var(--text-primary);
+    color: var(--accent);
+    text-align: center;
 }
 
 .agency-subtitle {
     font-size: 16px;
     line-height: 1.6;
-    color: var(--accent);
+    color: var(--text-primary);
     max-width: 640px;
-    margin: 0 0 40px 0;
+    margin: 0 auto 40px;
+    text-align: center;
 }
 
 .agency-grid {
@@ -891,8 +861,6 @@ html[dir="rtl"] .store-text { text-align: right; }
         grid-template-columns: 1fr 1fr;
         gap: 16px;
     }
-
-    .stats-row { gap: 40px; }
 
     .partner-card { width: 180px; height: 120px; padding: 6px; }
 

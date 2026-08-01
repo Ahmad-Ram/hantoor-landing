@@ -314,7 +314,7 @@ function launchConfetti() {
         });
     }
 
-    const duration = 3000;
+    const duration = 4200;
     const fadeStart = duration - 700;
     const start = performance.now();
 
