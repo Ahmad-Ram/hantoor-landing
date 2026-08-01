@@ -270,9 +270,15 @@ function launchConfetti() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (sessionStorage.getItem('hantoor-launch-seen')) return;
     sessionStorage.setItem('hantoor-launch-seen', '1');
+    runConfettiBurst();
+}
+
+function runConfettiBurst() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const canvas = document.getElementById('confetti-canvas');
     if (!canvas || !canvas.getContext) return;
+    canvas.style.display = 'block';
     const ctx = canvas.getContext('2d');
     const dpr = window.devicePixelRatio || 1;
 
@@ -351,4 +357,85 @@ if (document.readyState === 'complete') {
     launchConfetti();
 } else {
     window.addEventListener('load', launchConfetti);
+}
+
+/* ─── Reveal gate ──────────────────────────────
+   Shows the old "coming soon" countdown until launch, then slides away
+   into the new site. */
+const REVEAL_TARGET = new Date('2026-08-01T15:00:00Z').getTime();
+const revealGate = document.getElementById('reveal-gate');
+let revealTimer = null;
+
+const gateText = {
+    en: {
+        badge: "COMING SOON",
+        heading: "Your next rental experience",
+        accent: "is almost here",
+        subtitle: "Official rollout begins soon across Syria.",
+        days: "Days",
+        hours: "Hours",
+        minutes: "Minutes",
+        seconds: "Seconds",
+    },
+    ar: {
+        badge: "ترقبونا قريبا",
+        heading: "تجربتك القادمة لاستئجار السيارات",
+        accent: "أصبحت أقرب من أي وقت",
+        subtitle: "نستعد لإطلاق تجربة جديدة لاستئجار السيارات قريبًا في سوريا",
+        days: "أيام",
+        hours: "ساعات",
+        minutes: "دقائق",
+        seconds: "ثواني",
+    },
+};
+
+function setGateText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+}
+
+function paintGateText() {
+    if (!revealGate) return;
+    const t = gateText[currentLang] || gateText.en;
+    setGateText('gate-badge-text', t.badge);
+    setGateText('gate-main-heading', t.heading);
+    setGateText('gate-accent-heading', t.accent);
+    setGateText('gate-subtitle', t.subtitle);
+    setGateText('gate-label-days', t.days);
+    setGateText('gate-label-hours', t.hours);
+    setGateText('gate-label-minutes', t.minutes);
+    setGateText('gate-label-seconds', t.seconds);
+}
+
+function revealSite() {
+    if (revealTimer) clearInterval(revealTimer);
+    if (!revealGate) return;
+    revealGate.classList.add('reveal-gate--hidden');
+    setTimeout(() => {
+        revealGate.remove();
+        runConfettiBurst();
+    }, 1000);
+}
+
+function tickReveal() {
+    const remaining = REVEAL_TARGET - Date.now();
+    if (remaining <= 0) {
+        revealSite();
+        return;
+    }
+    const totalSeconds = Math.floor(remaining / 1000);
+    setGateText('gate-days', Math.floor(totalSeconds / 86400));
+    setGateText('gate-hours', Math.floor((totalSeconds % 86400) / 3600));
+    setGateText('gate-minutes', Math.floor((totalSeconds % 3600) / 60));
+    setGateText('gate-seconds', totalSeconds % 60);
+}
+
+if (revealGate) {
+    paintGateText();
+    if (Date.now() >= REVEAL_TARGET) {
+        revealGate.remove();
+    } else {
+        tickReveal();
+        revealTimer = setInterval(tickReveal, 1000);
+    }
 }
