@@ -109,15 +109,6 @@ body {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    position: absolute;
-    left: clamp(28px, 4vw, 56px);
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-html[dir="rtl"] .logo-link {
-    left: auto;
-    right: clamp(28px, 4vw, 56px);
 }
 
 .logo {
@@ -774,8 +765,6 @@ html[dir="rtl"] .store-text { text-align: right; }
     }
 
     .header-inner { padding: 14px 20px; direction: ltr; }
-
-    .logo-link { position: static; transform: none; }
 
     .logo { height: 30px; }
 

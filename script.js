@@ -23,12 +23,9 @@ const translations = {
         step2Title: "Compare",
         step2Desc: "Check specs, photos, and pricing for each car before you decide.",
         step3Title: "Book",
-        step3Desc: "Confirm your ID and license, then choose how you'll get the car.",
+        step3Desc: "Confirm your booking details, then choose how you'll get the car.",
         step4Title: "Get your car",
         step4Desc: "Pick up at a branch, the airport, or get it delivered straight to you.",
-        statsTitle: "Now live in Damascus",
-        stat1Label: "Verified rental agencies",
-        stat2Label: "Cars ready to book",
         partnersTitle: "Our partners",
         partnersSubtitle: "Trusted by leading rental agencies across Syria.",
         privacyPolicy: "Privacy Policy",
@@ -79,18 +76,15 @@ const translations = {
         feature3Desc: "استلم سيارتك في منزلك أو فندقك أو المطار.",
         feature4Title: "أسعار شفافة",
         feature4Desc: "السعر الذي تراه هو السعر الذي تدفعه، دون مفاوضات عبر الهاتف.",
-        howTitle: "كيف تعمل",
+        howTitle: "كيف يعمل",
         step1Title: "ابحث",
         step1Desc: "اختر مدينتك وتواريخ الحجز لترى السيارات المتاحة الآن.",
         step2Title: "قارن",
         step2Desc: "اطّلع على المواصفات والصور والأسعار لكل سيارة قبل أن تقرر.",
         step3Title: "احجز",
-        step3Desc: "أكّد بيانات هويتك ورخصة القيادة، ثم اختر طريقة استلام السيارة.",
+        step3Desc: "أكّد تفاصيل حجزك، ثم اختر طريقة استلام السيارة.",
         step4Title: "استلم سيارتك",
         step4Desc: "استلمها من أحد الفروع أو المطار، أو اطلب توصيلها إليك مباشرة.",
-        statsTitle: "متوفر الآن في دمشق",
-        stat1Label: "شركات تأجير موثقة",
-        stat2Label: "سيارة جاهزة للحجز",
         partnersTitle: "شركاؤنا",
         partnersSubtitle: "موثوق من قبل كبرى شركات تأجير السيارات في سوريا.",
         privacyPolicy: "سياسة الخصوصية",
@@ -98,13 +92,13 @@ const translations = {
         navMain: "الرئيسية",
         navWhy: "ليش حنتور",
         navPartners: "شركاؤنا",
-        navHow: "كيف تعمل",
+        navHow: "كيف يعمل",
         navStory: "قصتنا",
         navAgencies: "انضم إلينا",
         providerLogin: "دخول المزوّدين",
         storyTitle: "قصتنا",
         storyKicker: "من ألمانيا إلى دمشق — المنصة التي تمنّينا وجودها.",
-        storyBody1: "نحن مهندسا برمجيات سوريان نعيش في ألمانيا. كانت كل رحلة عودة لزيارة عائلاتنا تحمل الصداع نفسه: التمرير في مجموعات فيسبوك، ملاحقة محادثات واتساب، والمفاوضة على الأسعار دون معرفة حقيقية بما هو متاح فعلاً.",
+        storyBody1: "نحن مهندسا برمجيات سوريان نعيش في ألمانيا. كانت كل رحلة عودة لزيارة عائلاتنا تحمل الصداع نفسه: البحث في مجموعات فيسبوك، ملاحقة محادثات واتساب، والمفاوضة على الأسعار دون معرفة حقيقية بما هو متاح فعلاً.",
         storyBody2: "حنتور هو إجابتنا — منصة واحدة وموثوقة توفر وقت المسافرين وتمنح شركات التأجير المحلية الأدوات الرقمية التي تستحقها. أول منصة من نوعها في سوريا.",
         storyNames: "وجيه وأحمد",
         storyRole: "المؤسسان",
@@ -178,9 +172,6 @@ function updateLanguage(lang) {
     setText('step-4-title', t.step4Title);
     setText('step-4-desc', t.step4Desc);
 
-    setText('stats-title', t.statsTitle);
-    setText('stat-1-label', t.stat1Label);
-    setText('stat-2-label', t.stat2Label);
 
     setText('partners-title', t.partnersTitle);
     setText('partners-subtitle', t.partnersSubtitle);
