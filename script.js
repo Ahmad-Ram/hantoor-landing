@@ -82,7 +82,7 @@ const hoursEl   = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
 
-const countDownDate = new Date("2026-08-01T14:00:00Z").getTime();
+const countDownDate = new Date("2026-08-01T15:00:00Z").getTime();
 
 function updateCountdownValues() {
     const now      = new Date().getTime();
