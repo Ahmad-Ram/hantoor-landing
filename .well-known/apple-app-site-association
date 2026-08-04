@@ -5,9 +5,15 @@
         "appIDs": ["8GQM5ZPP48.net.hantoor.app"],
         "components": [
           { "/": "/booking/*" },
-          { "/": "/listing/*" },
+          { "/": "/bookings/*" },
           { "/": "/search*" },
-          { "/": "/bookings/*" }
+          { "/": "/vehicle/*" },
+          { "/": "/provider/*" },
+          { "/": "/providers*" },
+          { "/": "/agency/*" },
+          { "/": "/agencies*" },
+          { "/": "/book/*" },
+          { "/": "/s/*" }
         ]
       }
     ]
