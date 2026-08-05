@@ -62,7 +62,7 @@
     <header class="site-header">
         <div class="header-inner">
             <a href="/" class="logo-link">
-                <img src="images/logo.svg" alt="Hantoor" class="logo" id="header-logo">
+                <img src="images/logo.svg" alt="Hantoor" class="logo site-logo" id="header-logo">
             </a>
 
             <nav class="main-nav" id="main-nav">
@@ -110,11 +110,11 @@
                 <div id="store-buttons">
                     <a href="https://apps.apple.com/us/app/hantoor/id6766658486" target="_blank" rel="noopener" class="store-btn" id="store-apple" aria-label="Download on the App Store">
                         <svg class="store-icon" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                        <span class="store-text"><small id="store-apple-line1">Download on the</small><strong>App Store</strong></span>
+                        <span class="store-text"><small id="store-apple-line1" class="store-line1-apple">Download on the</small><strong>App Store</strong></span>
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=net.hantoor.app" target="_blank" rel="noopener" class="store-btn" id="store-google" aria-label="Get it on Google Play">
                         <svg class="store-icon" viewBox="-1 0 24 24" fill="currentColor" aria-hidden="true"><path d="m3.751.61 13.124 7.546-2.813 2.813zm-2.719-.61 12.047 12-12.046 12c-.613-.271-1.033-.874-1.033-1.575 0-.023 0-.046.001-.068v.003-20.719c-.001-.019-.001-.042-.001-.065 0-.701.42-1.304 1.022-1.571l.011-.004zm19.922 10.594c.414.307.679.795.679 1.344 0 .022 0 .043-.001.065v-.003c.004.043.007.094.007.145 0 .516-.25.974-.636 1.258l-.004.003-2.813 1.593-3.046-2.999 3.047-3.047zm-17.203 12.796 10.312-10.359 2.813 2.813z"/></svg>
-                        <span class="store-text"><small id="store-google-line1">GET IT ON</small><strong>Google Play</strong></span>
+                        <span class="store-text"><small id="store-google-line1" class="store-line1-google">GET IT ON</small><strong>Google Play</strong></span>
                     </a>
                 </div>
 
@@ -263,21 +263,31 @@
     </section>
 
     <footer class="site-footer">
-        <div class="footer-social">
-            <a href="https://www.facebook.com/people/Hantoor/61590774894619/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on Facebook" class="social-link">
-                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-38.7c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.4h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/hantoor.sy/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on Instagram" class="social-link">
-                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/company/136003904/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on LinkedIn" class="social-link">
-                <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3C448 46.5 433.6 32 416 32zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-            </a>
-        </div>
-        <div class="footer-links">
-            <a href="https://hantoor.net/privacy-policy/" id="footer-privacy">Privacy Policy</a>
-            <span aria-hidden="true">·</span>
-            <a href="https://hantoor.net/provider-flyer-jun-01/" id="footer-partner">Partner with us</a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="images/logo.svg" alt="Hantoor" class="footer-logo site-logo" id="footer-logo">
+                <p id="footer-copyright">© 2026 Hantoor. All rights reserved.</p>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/people/Hantoor/61590774894619/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on Facebook" class="social-link">
+                        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-38.7c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.4h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/hantoor.sy/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on Instagram" class="social-link">
+                        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/136003904/" target="_blank" rel="noopener noreferrer" aria-label="Hantoor on LinkedIn" class="social-link">
+                        <svg viewBox="0 0 448 512" fill="currentColor" aria-hidden="true"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3C448 46.5 433.6 32 416 32zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+                    </a>
+                </div>
+
+                <div class="footer-links">
+                    <a href="https://hantoor.net/privacy-policy/" id="footer-privacy">Privacy Policy</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="https://hantoor.net/provider-flyer-jun-01/" id="footer-partner">Partner with us</a>
+                </div>
+            </div>
         </div>
     </footer>
 
