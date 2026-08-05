@@ -57,6 +57,7 @@ const translations = {
         agencyCtaTitle: "Want to join us?",
         agencyCtaDesc: "Partner with Hantoor and put your fleet in front of thousands of renters.",
         agencyCtaBtn: "Become a partner",
+        footerCopyright: "Hantoor. All rights reserved.",
     },
     ar: {
         title: "حنتور - متوفر الآن في دمشق",
@@ -116,6 +117,7 @@ const translations = {
         agencyCtaTitle: "تريد الانضمام إلينا؟",
         agencyCtaDesc: "كن شريكًا مع حنتور وأعرض أسطولك أمام آلاف المستأجرين.",
         agencyCtaBtn: "انضم كمزود",
+        footerCopyright: "حنتور. جميع الحقوق محفوظة.",
     }
 };
 
@@ -126,6 +128,10 @@ let currentLang = 'en';
 function setText(id, value) {
     const el = document.getElementById(id);
     if (el) el.innerText = value;
+}
+
+function setTextAll(selector, value) {
+    document.querySelectorAll(selector).forEach(el => { el.innerText = value; });
 }
 
 function updateLanguage(lang) {
@@ -139,7 +145,7 @@ function updateLanguage(lang) {
     document.title = t.title;
 
     const logoSrc = lang === 'en' ? 'images/logo_English.svg' : 'images/logo.svg';
-    document.querySelectorAll('#header-logo').forEach(img => {
+    document.querySelectorAll('.site-logo').forEach(img => {
         img.src = logoSrc;
     });
 
@@ -149,8 +155,8 @@ function updateLanguage(lang) {
     setText('badge-text', t.badgeText);
     langBtn.innerText = t.btn;
 
-    setText('store-apple-line1', t.storeAppleLine1);
-    setText('store-google-line1', t.storeGoogleLine1);
+    setTextAll('.store-line1-apple', t.storeAppleLine1);
+    setTextAll('.store-line1-google', t.storeGoogleLine1);
 
     setText('features-title', t.featuresTitle);
     setText('feature-1-title', t.feature1Title);
@@ -178,6 +184,7 @@ function updateLanguage(lang) {
 
     setText('footer-privacy', t.privacyPolicy);
     setText('footer-partner', t.partnerWithUs);
+    setText('footer-copyright', `© ${new Date().getFullYear()} ${t.footerCopyright}`);
 
     setText('nav-main', t.navMain);
     setText('nav-why', t.navWhy);
