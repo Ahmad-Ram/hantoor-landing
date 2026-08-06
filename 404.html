@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Almarai:wght@400;700&display=swap" rel="stylesheet">
-    <script src="/apk-config.js"></script>
 
     <!-- iOS Smart App Banner: shows a native "OPEN / VIEW" banner in Safari and
          passes the original URL to the app when it is installed. -->
@@ -117,7 +116,6 @@
             <p class="ar">الصفحة التي تبحث عنها غير موجودة.</p>
             <div class="actions">
                 <a class="btn btn-primary" href="/">Go to homepage</a>
-                <a id="notfound-apk-btn" class="btn btn-secondary hidden">Download Hantoor APK</a>
             </div>
         </div>
     </main>
@@ -155,14 +153,6 @@
             var isIOS = /iPad|iPhone|iPod/.test(ua) ||
                         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
             var isAndroid = /android/i.test(ua);
-
-            // The direct APK option is relevant only on Android devices.
-            var notfoundApkBtn = document.getElementById('notfound-apk-btn');
-            if (isAndroid && notfoundApkBtn && window.HANTOOR_APK_PATH) {
-                notfoundApkBtn.href = window.HANTOOR_APK_PATH;
-                notfoundApkBtn.download = window.HANTOOR_APK_PATH.split('/').pop();
-                notfoundApkBtn.classList.remove('hidden');
-            }
 
             // Match only on a real path-segment boundary so a prefix like
             // '/home' matches '/home' and '/home/...' but never '/homepage'.
