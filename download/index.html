@@ -87,22 +87,6 @@
             text-decoration: none;
         }
         .home-link:hover { color: var(--text-secondary); }
-
-        .inapp-banner {
-            display: none;
-            text-align: left;
-            background: rgba(89, 180, 105, 0.12);
-            border: 1px solid var(--accent);
-            border-radius: 12px;
-            padding: 12px 14px;
-            margin-bottom: 22px;
-            font-size: 0.83rem;
-            line-height: 1.5;
-            color: var(--text-secondary);
-        }
-        .inapp-banner.show { display: block; }
-        .inapp-banner strong { color: var(--text-primary); }
-        .inapp-banner .ar { display: block; font-family: 'Almarai', sans-serif; direction: rtl; text-align: right; margin-top: 6px; }
     </style>
 </head>
 <body>
@@ -114,11 +98,6 @@
             The smarter way to rent cars in Syria.
             <span class="ar">الطريقة الأذكى لاستئجار السيارات في سوريا.</span>
         </p>
-
-        <div id="inapp-banner" class="inapp-banner">
-            <strong>Tip:</strong> if the button below doesn't respond, tap the <strong>⋯</strong> menu at the top or bottom of this screen and choose <strong>"Open in Browser"</strong>.
-            <span class="ar"><strong>ملاحظة:</strong> إذا لم يستجب الزر، اضغط على القائمة <strong>⋯</strong> أعلى أو أسفل الشاشة واختر <strong>"فتح في المتصفح"</strong>.</span>
-        </div>
 
         <div class="stores">
             <!-- App Store -->
@@ -148,11 +127,6 @@
             // this is the actual cause of "the button doesn't do anything".
             var isInApp = /Instagram|FBAN|FBAV|FB_IAB|Line\/|MicroMessenger|TikTok|Snapchat/i.test(ua);
 
-            if (isInApp) {
-                var banner = document.getElementById('inapp-banner');
-                if (banner) banner.classList.add('show');
-            }
-
             var iosBtn = document.getElementById('btn-ios');
             var androidBtn = document.getElementById('btn-android');
 
@@ -173,8 +147,7 @@
 
             // Auto-redirect to the matching store so the user doesn't have to
             // choose. Skipped inside in-app browsers, since the redirect would
-            // just hit the same block a manual tap does — the banner above is
-            // the actual fix there.
+            // just hit the same block a manual tap does.
             if (!isInApp) {
                 if (isIOS && iosBtn) {
                     window.location.href = iosBtn.href;
