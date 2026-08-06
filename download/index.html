@@ -86,6 +86,22 @@
             text-decoration: none;
         }
         .home-link:hover { color: var(--text-secondary); }
+
+        .inapp-banner {
+            display: none;
+            text-align: left;
+            background: rgba(89, 180, 105, 0.12);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin-bottom: 22px;
+            font-size: 0.83rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        .inapp-banner.show { display: block; }
+        .inapp-banner strong { color: var(--text-primary); }
+        .inapp-banner .ar { display: block; font-family: 'Almarai', sans-serif; direction: rtl; text-align: right; margin-top: 6px; }
     </style>
 </head>
 <body>
@@ -98,15 +114,20 @@
             <span class="ar">الطريقة الأذكى لاستئجار السيارات في سوريا.</span>
         </p>
 
+        <div id="inapp-banner" class="inapp-banner">
+            <strong>Tip:</strong> if the button below doesn't respond, tap the <strong>⋯</strong> menu at the top or bottom of this screen and choose <strong>"Open in Browser"</strong>.
+            <span class="ar"><strong>ملاحظة:</strong> إذا لم يستجب الزر، اضغط على القائمة <strong>⋯</strong> أعلى أو أسفل الشاشة واختر <strong>"فتح في المتصفح"</strong>.</span>
+        </div>
+
         <div class="stores">
             <!-- App Store -->
-            <a class="store-btn" href="https://apps.apple.com/app/id6766658486" rel="noopener">
+            <a class="store-btn" id="btn-ios" href="https://apps.apple.com/app/id6766658486" rel="noopener">
                 <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
                 <span class="txt"><small>Download on the</small><strong>App Store</strong></span>
             </a>
 
             <!-- Google Play -->
-            <a class="store-btn" href="https://play.google.com/store/apps/details?id=net.hantoor.app" rel="noopener">
+            <a class="store-btn" id="btn-android" href="https://play.google.com/store/apps/details?id=net.hantoor.app" rel="noopener">
                 <svg viewBox="-1 0 24 24" fill="currentColor" aria-hidden="true"><path d="m3.751.61 13.124 7.546-2.813 2.813zm-2.719-.61 12.047 12-12.046 12c-.613-.271-1.033-.874-1.033-1.575 0-.023 0-.046.001-.068v.003-20.719c-.001-.019-.001-.042-.001-.065 0-.701.42-1.304 1.022-1.571l.011-.004zm19.922 10.594c.414.307.679.795.679 1.344 0 .022 0 .043-.001.065v-.003c.004.043.007.094.007.145 0 .516-.25.974-.636 1.258l-.004.003-2.813 1.593-3.046-2.999 3.047-3.047zm-17.203 12.796 10.312-10.359 2.813 2.813z"/></svg>
                 <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
             </a>
@@ -114,5 +135,44 @@
 
         <a class="home-link" href="/">← Back to hantoor.net</a>
     </main>
+
+    <script>
+        (function () {
+            var ua = navigator.userAgent || '';
+
+            var isIOS = /iPhone|iPad|iPod/.test(ua);
+            var isAndroid = /Android/.test(ua);
+
+            // Common in-app / embedded browsers that restrict store deep-links.
+            var isInApp = /Instagram|FBAN|FBAV|FB_IAB|Line\/|MicroMessenger|TikTok|Snapchat/i.test(ua);
+
+            if (isInApp) {
+                var banner = document.getElementById('inapp-banner');
+                if (banner) banner.classList.add('show');
+            }
+
+            var iosBtn = document.getElementById('btn-ios');
+            var androidBtn = document.getElementById('btn-android');
+
+            // On Android, an intent:// URL is more likely to break out of an
+            // in-app webview (Instagram, etc.) than a plain https:// link.
+            if (isAndroid && androidBtn) {
+                androidBtn.href =
+                    'intent://play.google.com/store/apps/details?id=net.hantoor.app#Intent;scheme=https;package=com.android.vending;end';
+            }
+
+            // Auto-redirect to the matching store so the user doesn't have to choose.
+            // Skipped inside in-app browsers, since the redirect is likely to be
+            // blocked the same way a manual tap would be — the banner above is
+            // the actual fix there.
+            if (!isInApp) {
+                if (isIOS && iosBtn) {
+                    window.location.href = iosBtn.href;
+                } else if (isAndroid && androidBtn) {
+                    window.location.href = androidBtn.href;
+                }
+            }
+        })();
+    </script>
 </body>
 </html>
