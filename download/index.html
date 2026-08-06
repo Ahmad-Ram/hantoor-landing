@@ -20,6 +20,7 @@
 
     <!-- iOS Smart App Banner -->
     <meta name="apple-itunes-app" content="app-id=6766658486">
+    <script src="/apk-config.js"></script>
 
     <style>
         :root {
@@ -113,7 +114,7 @@
             </a>
 
             <!-- Direct Android APK -->
-            <a class="store-btn" id="btn-apk" href="/download/hantoor-app-v1.2.1.apk" download="hantoor-app-v1.2.1.apk">
+            <a class="store-btn" id="btn-apk">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 21h14"/></svg>
                 <span class="txt"><small>Download directly</small><strong>Android APK</strong></span>
             </a>
@@ -135,6 +136,12 @@
 
             var iosBtn = document.getElementById('btn-ios');
             var androidBtn = document.getElementById('btn-android');
+            var apkBtn = document.getElementById('btn-apk');
+
+            if (apkBtn && window.HANTOOR_APK_PATH) {
+                apkBtn.href = window.HANTOOR_APK_PATH;
+                apkBtn.download = window.HANTOOR_APK_PATH.split('/').pop();
+            }
 
             // On Android, an intent:// URL is more likely to break out of an
             // in-app webview (Instagram, etc.) than a plain https:// link.
