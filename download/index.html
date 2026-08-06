@@ -73,6 +73,7 @@
             transition: border-color 0.15s ease, transform 0.15s ease;
         }
         .store-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+        .store-btn.primary { border-color: var(--accent); background: rgba(89, 180, 105, 0.1); }
         .store-btn svg { width: 30px; height: 30px; flex-shrink: 0; color: var(--accent); }
         .store-btn .txt { text-align: left; line-height: 1.15; }
         .store-btn .txt small { display: block; font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-muted); }
@@ -143,7 +144,8 @@
             var isIOS = /iPhone|iPad|iPod/.test(ua);
             var isAndroid = /Android/.test(ua);
 
-            // Common in-app / embedded browsers that restrict store deep-links.
+            // Common in-app / embedded browsers that block store deep-links —
+            // this is the actual cause of "the button doesn't do anything".
             var isInApp = /Instagram|FBAN|FBAV|FB_IAB|Line\/|MicroMessenger|TikTok|Snapchat/i.test(ua);
 
             if (isInApp) {
@@ -161,16 +163,12 @@
                     'intent://play.google.com/store/apps/details?id=net.hantoor.app#Intent;scheme=https;package=com.android.vending;end';
             }
 
-            // Auto-redirect to the matching store so the user doesn't have to choose.
-            // Skipped inside in-app browsers, since the redirect is likely to be
-            // blocked the same way a manual tap would be — the banner above is
-            // the actual fix there.
-            if (!isInApp) {
-                if (isIOS && iosBtn) {
-                    window.location.href = iosBtn.href;
-                } else if (isAndroid && androidBtn) {
-                    window.location.href = androidBtn.href;
-                }
+            // Visually highlight the matching store instead of auto-navigating,
+            // so the right choice is obvious without forcing a redirect.
+            if (isIOS && iosBtn) {
+                iosBtn.classList.add('primary');
+            } else if (isAndroid && androidBtn) {
+                androidBtn.classList.add('primary');
             }
         })();
     </script>
