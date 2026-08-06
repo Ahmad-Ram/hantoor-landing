@@ -20,6 +20,7 @@
 
     <!-- iOS Smart App Banner -->
     <meta name="apple-itunes-app" content="app-id=6766658486">
+    <script src="/apk-config.js"></script>
 
     <style>
         :root {
@@ -111,6 +112,12 @@
                 <svg viewBox="-1 0 24 24" fill="currentColor" aria-hidden="true"><path d="m3.751.61 13.124 7.546-2.813 2.813zm-2.719-.61 12.047 12-12.046 12c-.613-.271-1.033-.874-1.033-1.575 0-.023 0-.046.001-.068v.003-20.719c-.001-.019-.001-.042-.001-.065 0-.701.42-1.304 1.022-1.571l.011-.004zm19.922 10.594c.414.307.679.795.679 1.344 0 .022 0 .043-.001.065v-.003c.004.043.007.094.007.145 0 .516-.25.974-.636 1.258l-.004.003-2.813 1.593-3.046-2.999 3.047-3.047zm-17.203 12.796 10.312-10.359 2.813 2.813z"/></svg>
                 <span class="txt"><small>Get it on</small><strong>Google Play</strong></span>
             </a>
+
+            <!-- Direct Android APK -->
+            <a class="store-btn" id="btn-apk">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 21h14"/></svg>
+                <span class="txt"><small>Download directly</small><strong>Android APK</strong></span>
+            </a>
         </div>
 
         <a class="home-link" href="/">← Back to hantoor.net</a>
@@ -129,6 +136,12 @@
 
             var iosBtn = document.getElementById('btn-ios');
             var androidBtn = document.getElementById('btn-android');
+            var apkBtn = document.getElementById('btn-apk');
+
+            if (apkBtn && window.HANTOOR_APK_PATH) {
+                apkBtn.href = window.HANTOOR_APK_PATH;
+                apkBtn.download = window.HANTOOR_APK_PATH.split('/').pop();
+            }
 
             // On Android, an intent:// URL is more likely to break out of an
             // in-app webview (Instagram, etc.) than a plain https:// link.
@@ -145,15 +158,11 @@
                 androidBtn.classList.add('primary');
             }
 
-            // Auto-redirect to the matching store so the user doesn't have to
-            // choose. Skipped inside in-app browsers, since the redirect would
-            // just hit the same block a manual tap does.
-            if (!isInApp) {
-                if (isIOS && iosBtn) {
-                    window.location.href = iosBtn.href;
-                } else if (isAndroid && androidBtn) {
-                    window.location.href = androidBtn.href;
-                }
+            // iOS has a single download route, so it can still go straight to
+            // the App Store. Android stays on this page so people can choose
+            // between Google Play and the direct APK download.
+            if (!isInApp && isIOS && iosBtn) {
+                window.location.href = iosBtn.href;
             }
         })();
     </script>
