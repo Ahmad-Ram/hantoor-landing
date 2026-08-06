@@ -163,12 +163,24 @@
                     'intent://play.google.com/store/apps/details?id=net.hantoor.app#Intent;scheme=https;package=com.android.vending;end';
             }
 
-            // Visually highlight the matching store instead of auto-navigating,
-            // so the right choice is obvious without forcing a redirect.
+            // Visually highlight the matching store so the right choice is
+            // obvious even if the auto-redirect below doesn't fire.
             if (isIOS && iosBtn) {
                 iosBtn.classList.add('primary');
             } else if (isAndroid && androidBtn) {
                 androidBtn.classList.add('primary');
+            }
+
+            // Auto-redirect to the matching store so the user doesn't have to
+            // choose. Skipped inside in-app browsers, since the redirect would
+            // just hit the same block a manual tap does — the banner above is
+            // the actual fix there.
+            if (!isInApp) {
+                if (isIOS && iosBtn) {
+                    window.location.href = iosBtn.href;
+                } else if (isAndroid && androidBtn) {
+                    window.location.href = androidBtn.href;
+                }
             }
         })();
     </script>
